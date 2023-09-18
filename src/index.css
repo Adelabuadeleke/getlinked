@@ -1,0 +1,100 @@
+/*
+=============== 
+Fonts
+===============
+*/
+
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* purple shades */
+  --clr-purple-1: #D434FE;
+  --clr-purple-2: #903AFF;
+  --clr-purple-3: #150E28;
+  --clr-purple-gradient: linear-gradient(270deg, #903AFF 0%, #FE34B9 100%);
+  /* white for texts */
+  --clr-white: #fff;
+  /* fonts */
+  --ff-primary: "Montserrat", sans-serif;
+  --ff-secondary: "Clash Display", sans-serif;
+  --ff-secondary-2: "Unica One", sans-serif;
+  --transition: all 0.3s linear;
+  /* others */
+  --spacing: 0.25rem;
+  /* --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  background: var(--clr-purple-3);
+  color: var(--clr-white);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+img {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-secondary);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-white);
+}
