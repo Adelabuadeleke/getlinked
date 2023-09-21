@@ -1,0 +1,167 @@
+.register_div{
+ display: flex;
+ flex-direction: column;
+ flex: 1;
+ background: radial-gradient(40% 40% at 90% 90%, #43097e 0%,transparent  100%),
+ radial-gradient(40% 40% at 0% 34.31%, #43097e 0%, transparent 100%);
+ background-blend-mode: hard-light;
+ min-height: 100dvh;
+}
+
+.register_body{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex: 1;
+ padding: 50px;
+ /* background:  url('../../public/imgs/Purple-Lens-Flare-PNG.png');
+ background-repeat: no-repeat; */
+ 
+ /* background-position:left top; */
+ /* background-size: 500px, 500px; */
+ /* background: radial-gradient(40% 40% at 100% 90%, #43097e 0%, var(--clr-purple-3) 100%) bottom right no-repeat; */
+}
+
+.reg_body_img>img{
+ width: 600px;
+}
+
+.register_form>form{
+ border-radius: 12px;
+ background: rgba(255, 255, 255, 0.03);
+ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ padding: 65px;
+}
+
+.register_form>form>h3{
+ color: var(--clr-purple-1);
+ font-family: var(--ff-secondary);
+ font-size: 32px;
+ font-style: normal;
+ font-weight: 600;
+ line-height: normal;
+ margin-bottom: 46px;
+}
+
+.register_form>form>p{
+ color: var(--clr-white);
+ font-family: var(--ff-primary);
+ font-size: 14px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+ display: flex;
+ align-items: flex-end;
+}
+
+.register_form>form>h2{
+ color: var(--clr-white);
+ font-family: var(--ff-primary);
+ font-size: 24px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+ text-transform: uppercase;
+ margin-bottom: 33px;
+}
+
+.register_form>form>small{
+ font-family: var(--ff-primary);
+ font-size: 12px;
+ font-style: italic;
+ font-weight: 400;
+ line-height: normal;
+ margin-bottom: 15px;
+}
+.reg_terms{
+ color: var(--clr-white);
+ font-family: var(--ff-primary);
+ font-size: 12px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+ margin-top: 10px;
+ margin-bottom: 22px;
+ display: flex;
+ align-items: center;
+}
+
+.reg_terms>input{
+ margin-right: 5px;
+}
+.register_form>form>p>span{
+ display: flex;
+ justify-content: center;
+ width: 100px;
+ border-bottom: 1px dotted var(--clr-purple-1);
+}
+
+.input_div{
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 29px;
+}
+
+.input_div_item{
+ display: flex;
+ flex-direction: column;
+ margin-right: 32px;
+}
+
+.input_div_item>label{
+ color: var(--clr-white);
+ font-family: var(--ff-primary);
+ margin-bottom: 11px;
+ font-size: 14px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+}
+
+.input_div_item>input,
+.input_div_item>select{
+ width: 263px;
+ height: 47px;
+ border-radius: 4px;
+ border: 1px solid var(--clr-white);
+ background: rgba(255, 255, 255, 0.03);
+ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ outline-color: var(--clr-purple-1);
+ padding: 15px 26px;
+}
+
+.input_div_item>select{
+ color: var(--clr-white);
+ font-family: var(--ff-primary);
+ font-size: 14px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+}
+
+.input_div_item>select>option{
+ background: var(--clr-purple-1);
+}
+
+.input_div_item>input::placeholder{
+ color: rgba(255, 255, 255, 0.25);
+ font-family: var(--ff-primary);
+ font-size: 14px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+}
+
+.register_now{
+ border-radius: 4px;
+  background: var(--clr-purple-gradient);
+  height: 53px;
+  border: none;
+  width: 100%;
+  color: var(--clr-white);
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
