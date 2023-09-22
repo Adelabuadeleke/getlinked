@@ -6,6 +6,7 @@ Fonts
 
 @import url('https://fonts.cdnfonts.com/css/clash-display');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 
 /*
@@ -27,6 +28,7 @@ Variables
   --ff-primary: "Montserrat", sans-serif;
   --ff-secondary: "Clash Display", sans-serif;
   --ff-secondary-2: "Unica One", sans-serif;
+  --ff-secondary-3: "Inter One", sans-serif;
   --transition: all 0.3s linear;
   /* others */
   --spacing: 0.25rem;
