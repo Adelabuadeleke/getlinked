@@ -42,9 +42,22 @@ function Contact() {
        <input type="text" name="" id="" placeholder='First Name' />
        <input type="email" name="" id="" placeholder='Mail' />
        <textarea name="" id="" cols="30" rows="10" placeholder='Message'></textarea>
-       <button className="submit">
-        Submit
-       </button>
+       <div className="submit_div">
+        <button className="submit">
+         Submit
+        </button>
+       </div>
+
+       <div className="share_mobile">
+        <h6 className='purple'>Share on</h6>
+        <div className="follow">
+         <img src="../../imgs/mdi_instagram.svg" alt="" />
+         <img src="../../imgs/Vector.svg" alt="" />
+         <img src="../../imgs/Vector (1).svg" alt="" />
+         <img src="../../imgs/ri_linkedin-fill.svg" alt="" />
+        </div>
+       </div>
+       
       </form>
      </div>
     </div>
