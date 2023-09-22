@@ -21,7 +21,7 @@ function Register() {
         </p>
 
         <h2>create your account</h2>
-        <div className="input_div">
+        <div className="input_div mobile_flex">
          <div className="input_div_item">
           <label htmlFor="">Team's Name</label>
           <input type="text" placeholder='Enter the name of your group'/>
@@ -33,7 +33,7 @@ function Register() {
          </div>
         </div>
 
-        <div className="input_div">
+        <div className="input_div mobile_flex">
          <div className="input_div_item">
           <label htmlFor="">Email</label>
           <input type="text" placeholder='Enter your email address'/>
@@ -45,10 +45,11 @@ function Register() {
          </div>
         </div>
 
-        <div className="input_div">
+        <div className="input_div_flex">
          <div className="input_div_item">
           <label htmlFor="">Category</label>
-          <select name="" id="">
+          <select className='category' name="" id="">
+           <option value=""> select your category</option>
            <option value="one">one</option>
            <option value="two">two</option>
            <option value="two">three</option>
@@ -57,7 +58,8 @@ function Register() {
 
          <div className="input_div_item">
           <label htmlFor="">Group Size</label>
-          <select name="" id="">
+          <select className='group' name="" id="">
+           <option >select</option>
            <option value="one">one</option>
            <option value="two">two</option>
            <option value="two">three</option>
