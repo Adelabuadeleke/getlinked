@@ -2,9 +2,15 @@
  display: flex;
 }
 
+a{
+ text-decoration: none;
+ color: var(--clr-white);
+}
 
-
-.nav_second>button{
+.nav_second>a{
+ display: flex;
+ justify-content: center;
+ align-items: center;
  margin-left: 121px;
  width: 172px;
  height: 53px;
@@ -24,7 +30,7 @@
 
 .sidebar {
  width: 100vw;
- height: 100dvh;
+ height: 100vh;
  position: absolute;
  z-index: 1000;
  backdrop-filter: blur(7px);
@@ -77,6 +83,9 @@
 }
 
 .sidebar_inner>.register{
+ display: flex;
+ justify-content: center;
+ align-items: center;
  width: 172px;
  height: 53px;
  border-radius: 4px;
