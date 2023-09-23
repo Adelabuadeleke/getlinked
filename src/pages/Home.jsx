@@ -322,6 +322,146 @@ function Home() {
        <p>Here is the breakdown of the time we anticipate 
         using for the upcoming event.</p>
       </div>
+      <div className="timeline_body">
+        <div className="timeline_body_content">
+          <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>Hackathon Announcement</h5>
+              <p>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                1
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>November 18, 2023</h5>
+            </div>
+          </div>
+
+          {/*  */}
+
+           <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>November 18, 2023</h5>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                2
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>Teams Registration begins</h5>
+              <p>
+                Interested teams can now show their interest in the
+                getlinked tech hackathon 1.0 2023 by proceeding to register
+              </p>
+              
+            </div>
+          </div>
+
+          {/*  */}
+
+           <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>Hackathon Announcement</h5>
+              <p>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                3
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>November 18, 2023</h5>
+            </div>
+          </div>
+          {/*  */}
+
+           <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>November 18, 2023</h5>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                4
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>Hackathon Announcement</h5>
+              <p>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+            </div>
+          </div>
+
+          {/*  */}
+
+           <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>Hackathon Announcement</h5>
+              <p>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                5
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>November 18, 2023</h5>
+            </div>
+          </div>
+
+           <div className="timeline_body_content_item">
+            <div className="content_item_first">
+              <h5>November 18, 2023</h5>
+            </div>
+            <div className="content_item_middle">
+              <div className="timeline_line">
+
+              </div>
+              <div className="timeline_circle">
+                6
+              </div>
+            </div>
+            <div className="content_item_second">
+              <h5>Hackathon Announcement</h5>
+              <p>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+            </div>
+          </div>
+
+          {/*  */}
+
+        </div>
+      </div>
      </section>
 
      <section className="prizes">
