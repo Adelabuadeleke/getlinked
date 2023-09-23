@@ -1,14 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/home.css'
+import Aos from 'aos';
+import {split} from '../animations/text'
+import scroll from "../animations/scroll";
 
 // components
 import Nav from '../components/Nav';
 
 function Home() {
+  useEffect(()=>{
+    // scroll()
+    // split()
+    // Aos.init();
+  })
+ 
+
+
+  const [hours, setHours] = useState('')
+  const [minutes, setMinutes] = useState('')
+  const [seconds, setSeconds] = useState('')
+
  useEffect(()=>{
   const faqToggle = () => {
    const faqs = document.querySelectorAll('.faq');
-   console.log(faqs)
    const faqsReply = document.querySelector('.faq_reply');
 
    faqs.forEach(function (faq) {
@@ -30,7 +44,46 @@ function Home() {
     })
    });
   }
+
+  
+  const timmerFunc = () =>{
+  const today = new Date().getTime();
+  
+  let tempDate = new Date();
+  let tempYear = tempDate.getFullYear();
+  let tempMonth = tempDate.getMonth();
+  let tempDay = tempDate.getDate();
+
+  const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
+  const futureTime = futureDate.getTime();
+  
+  const t = futureTime - today;
+  // 1s = 1000ms
+  // 1m = 60s
+  // 1hr = 60m
+  // 1d = 24hr
+  // values in miliseconds
+  const oneDay = 24 * 60 * 60 * 1000;
+  const oneHour = 60 * 60 * 1000;
+  const oneMinute = 60 * 1000;
+
+
+  // calculate all values
+  let days = t / oneDay;
+  days = Math.floor(days);
+  let hours = Math.floor((t % oneDay) / oneHour);
+  let minutes = Math.floor((t % oneHour) / oneMinute);
+  let seconds = Math.floor((t % oneMinute) / 1000);
+
+  setHours(hours)
+  setMinutes(minutes) ;
+  setSeconds(seconds) 
+  }
+ 
+  setInterval(timmerFunc, 1000);
+  timmerFunc()
   faqToggle()
+
  })
 
   return (
@@ -38,19 +91,26 @@ function Home() {
      <header>
       <Nav />
       <div className="header_ignition">
-       <p>Igniting a Revolution in HR Innovation</p>
+        <div className="ignition_inner">
+          <p data-animation='text-animation_'>Igniting a Revolution in 
+            HR Innovation
+          </p>
+          <img src="../../imgs/stroke.svg" alt="" />
+        </div>
+       
+
       </div>
 
       <main className='getlinked_main'>
        <article className='getlinked_tech_contents'>
 
-        <h2>getlinked Tech</h2>
-        <h2>
+        <h2 data-animation='text-animation_'>getlinked Tech</h2>
+        <h2 data-animation='text-animation'>
          Hackathon <span className="purple">1.0</span> 
         <img src="../../imgs/chain-9365116-7621444.png" alt="" />
         <img src="../../imgs/1f4a5.png" alt="" />
         </h2>
-        <p>
+        <p data-animation='text-animation'>
          Participate in getlinked tech Hackathon 2023 stand 
          a chance to win a Big prize
         </p>
@@ -58,9 +118,9 @@ function Home() {
          Register
         </button>
         <div className='count_down'>
-         <p><span className="hr">00</span>h</p>
-         <p><span className="min">00</span>m</p>
-         <p><span className="sec">00</span>s</p>
+         <p><span className="hr">{hours}</span>h</p>
+         <p><span className="min">{minutes}</span>m</p>
+         <p><span className="sec">{seconds}</span>s</p>
         </div>
 
        </article>
@@ -72,12 +132,12 @@ function Home() {
 
      </header>
 
-     <section className="introduction">
+     <section className="introduction" id='overview'>
       <img src="../../imgs/the big idea 1.png" alt="" />
       <article>
-       <h3>Introduction to getlinked <br />
-       <span className="purple">tech Hackathon 1.0</span></h3>
-       <p>
+       <h3 data-animation='text-animation'>Introduction to getlinked <br />
+       <span className="purple" data-animation='text-animation'>tech Hackathon 1.0</span></h3>
+       <p data-animation='text-animation'>
         Our tech hackathon is a melting pot of visionaries, and its purpose is as
         clear as day: to shape the future. Whether you're a coding genius, a 
         design maverick, or a concept wizard, you'll have the chance to transform 
@@ -91,7 +151,7 @@ function Home() {
      <section className="rules">
       <article>
        <h3>Rules and <br /><span className='purple'>Guidelines</span></h3>
-       <p>
+       <p data-animation='text-animation'>
         Our tech hackathon is a melting pot of visionaries, and its purpose is as
         clear as day: to shape the future. Whether you're a coding genius, a 
         design maverick, or a concept wizard, you'll have the chance to transform 
@@ -106,11 +166,11 @@ function Home() {
      <section className="criteria">
       <img src="../../imgs/8046554 1.png" alt="" />
       <article>
-       <h3>Judging Criteria <br />
-       <span className="purple">Key attributes</span></h3>
+       <h3 data-animation='text-animation'>Judging Criteria <br />
+       <span className="purple" data-animation='text-animation'>Key attributes</span></h3>
 
        <article className="criteria_item">
-        <p><span className="item_title purple">Innovation and Creativity: </span> <span className="item_text">
+        <p><span className="item_title purple" data-animation='text-animation'>Innovation and Creativity: </span> <span className="item_text" data-animation='text-animation'>
         Evaluate the uniqueness and creativity of the
         solution. Consider whether it addresses a real-world problem in a novel 
         way or introduces innovative features.
@@ -118,7 +178,7 @@ function Home() {
        </article>
 
        <article className="criteria_item">
-        <p><span className="item_title purple">Functionality:</span> <span className="item_text">
+        <p><span className="item_title purple" data-animation='text-animation'>Functionality:</span> <span className="item_text" data-animation='text-animation'>
          Assess how well the solution works. Does it perform its 
          intended functions effectively and without major issues? Judges would
          consider the completeness and robustness of the solution.
@@ -126,7 +186,7 @@ function Home() {
        </article>
 
        <article className="criteria_item">
-        <p><span className="item_title purple">Impact and Relevance: </span> <span className="item_text">
+        <p><span className="item_title purple" data-animation='text-animation'>Impact and Relevance: </span> <span className="item_text" data-animation='text-animation'>
         Determine the potential impact of the solution   
         in the real world. Does it address a significant problem, and is it relevant 
         to the target audience? Judges would assess the potential social, 
@@ -135,7 +195,7 @@ function Home() {
        </article>
 
        <article className="criteria_item">
-        <p><span className="item_title purple">Technical Complexity: </span> <span className="item_text">
+        <p><span className="item_title purple" data-animation='text-animation'>Technical Complexity: </span> <span className="item_text" data-animation='text-animation'>
          Evaluate the technical sophistication of the solution. 
          Judges would consider the complexity of the code, the use of advanced 
          technologies or algorithms, and the scalability of the solution.
@@ -143,26 +203,28 @@ function Home() {
        </article>
 
        <article className="criteria_item">
-        <p><span className="item_title purple">Adherence to Hackathon Rules: </span> <span className="item_text">
+        <p><span className="item_title purple" data-animation='text-animation'>Adherence to Hackathon Rules: </span> <span className="item_text" data-animation='text-animation'>
         Judges will Ensure that the team adhered 
         to the rules and guidelines of the hackathon, including deadlines, use of 
         specific technologies or APIs, and any other competition-specific requirements.
         </span></p>
        </article>
-
-       <button className="read_more">
-        Read more
-       </button>
+      <div className="read_more_div">
+        <button className="read_more">
+          Read more
+        </button>
+      </div>
+      
       </article>
      </section>
 
-     <section className="faq_section">
+     <section className="faq_section" id='faq_'>
       <article className="faq_questions">
        <div className="faq_title">
         <h3>Frequently Ask<br />
        <span className="purple">Question</span></h3>
 
-       <p>
+       <p data-animation='text-animation'>
         We got answers to the questions that you might
         want to ask about getlinked Hackathon 1.0
        </p>
@@ -171,8 +233,8 @@ function Home() {
         {/* single faq */}
         <div className="faq show" >
          <div className="faq_question">
-          <div className="faq_que">
-           <p>Can I work on a project I started before the hackathon?</p>
+          <div className="faq_que" >
+           <p data-animation='text-animation'>Can I work on a project I started before the hackathon?</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -184,7 +246,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -195,7 +257,7 @@ function Home() {
         <div className="faq" >
          <div className="faq_question">
           <div className="faq_que">
-           <p>What happens if I need help during the hackathon?</p>
+           <p data-animation='text-animation'>What happens if I need help during the hackathon?</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -207,7 +269,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -219,7 +281,7 @@ function Home() {
         <div className="faq" >
          <div className="faq_question">
           <div className="faq_que">
-           <p>What happens if I don't have an idea for a project?</p>
+           <p data-animation='text-animation'>What happens if I don't have an idea for a project?</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -231,7 +293,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -243,7 +305,7 @@ function Home() {
         <div className="faq" >
          <div className="faq_question">
           <div className="faq_que">
-           <p>Can I join a team or do I have to come with one?</p>
+           <p data-animation='text-animation'>Can I join a team or do I have to come with one?</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -255,7 +317,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -267,7 +329,7 @@ function Home() {
         <div className="faq" >
          <div className="faq_question">
           <div className="faq_que">
-           <p>What happens after the hackathon ends</p>
+           <p data-animation='text-animation'>What happens after the hackathon ends</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -279,7 +341,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -291,7 +353,7 @@ function Home() {
         <div className="faq" >
          <div className="faq_question">
           <div className="faq_que">
-           <p>Can I work on a project I started before the hackathon?</p>
+           <p data-animation='text-animation'>Can I work on a project I started before the hackathon?</p>
           </div>
           <button className="question_btn">
            <span className="plus-icon purple">
@@ -303,7 +365,7 @@ function Home() {
           </button>
          </div>
          <div className="faq_reply">
-          <p>
+          <p data-animation='text-animation'>
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ullam?
           </p>
          </div>
@@ -313,21 +375,21 @@ function Home() {
 
       </article>
 
-      <img src="../../imgs/cwok_casual_21 1.png" alt="" />
+      <img src="../../imgs/faq_group.png" alt="" />
      </section>
 
-     <section className="timeline">
+     <section className="timeline" id='timeline'>
       <div className="timeline_title">
-       <h3>Timeline</h3>
-       <p>Here is the breakdown of the time we anticipate 
+       <h3 data-animation='text-animation'>Timeline</h3>
+       <p data-animation='text-animation'>Here is the breakdown of the time we anticipate 
         using for the upcoming event.</p>
       </div>
       <div className="timeline_body">
         <div className="timeline_body_content">
           <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>Hackathon Announcement</h5>
-              <p>
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
                 The getlinked tech hackathon 1.0 is formally announced
                 to the general public and teams begin to get ready to register
               </p>
@@ -340,8 +402,16 @@ function Home() {
                 1
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
           </div>
 
@@ -349,7 +419,7 @@ function Home() {
 
            <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
             <div className="content_item_middle">
               <div className="timeline_line">
@@ -359,9 +429,17 @@ function Home() {
                 2
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>Teams Registration begins</h5>
-              <p>
+              <h5 data-animation='text-animation'>Teams Registration begins</h5>
+              <p data-animation='text-animation'>
                 Interested teams can now show their interest in the
                 getlinked tech hackathon 1.0 2023 by proceeding to register
               </p>
@@ -373,8 +451,8 @@ function Home() {
 
            <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>Hackathon Announcement</h5>
-              <p>
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
                 The getlinked tech hackathon 1.0 is formally announced
                 to the general public and teams begin to get ready to register
               </p>
@@ -387,15 +465,23 @@ function Home() {
                 3
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
           </div>
           {/*  */}
 
            <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
             <div className="content_item_middle">
               <div className="timeline_line">
@@ -405,9 +491,17 @@ function Home() {
                 4
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>Hackathon Announcement</h5>
-              <p>
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
                 The getlinked tech hackathon 1.0 is formally announced
                 to the general public and teams begin to get ready to register
               </p>
@@ -418,8 +512,8 @@ function Home() {
 
            <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>Hackathon Announcement</h5>
-              <p>
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
                 The getlinked tech hackathon 1.0 is formally announced
                 to the general public and teams begin to get ready to register
               </p>
@@ -432,14 +526,22 @@ function Home() {
                 5
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
           </div>
 
            <div className="timeline_body_content_item">
             <div className="content_item_first">
-              <h5>November 18, 2023</h5>
+              <h5 data-animation='text-animation'>November 18, 2023</h5>
             </div>
             <div className="content_item_middle">
               <div className="timeline_line">
@@ -449,9 +551,17 @@ function Home() {
                 6
               </div>
             </div>
+            <div className="content_item_mobile">
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
+                The getlinked tech hackathon 1.0 is formally announced
+                to the general public and teams begin to get ready to register
+              </p>
+              <h5>November 18, 2023</h5>
+            </div>
             <div className="content_item_second">
-              <h5>Hackathon Announcement</h5>
-              <p>
+              <h5 data-animation='text-animation'>Hackathon Announcement</h5>
+              <p data-animation='text-animation'>
                 The getlinked tech hackathon 1.0 is formally announced
                 to the general public and teams begin to get ready to register
               </p>
@@ -469,16 +579,16 @@ function Home() {
       <div className="prize_list">
         <div className="prize_list_heading">
           <h3>Prices and <br /> <span className="purple">Rewards</span></h3>
-          <p>Highlight of the prizes or rewards for winners <br />and participants</p>
+          <p data-animation='text-animation'>Highlight of the prizes or rewards for winners <br />and participants</p>
         </div>
         <div className="prize_list_content">
 
           <div className="side_prize">
             <img src="../../imgs/silver_medal 1.png" alt="" />
             <div className="side_prize_text">
-              <h4>2nd</h4>
-              <p>Runner</p>
-              <h1 className='purple'>N300,000</h1>
+              <h4 data-animation='text-animation'>2nd</h4>
+              <p data-animation='text-animation'>Runner</p>
+              <h1 className='purple' data-animation='text-animation'>N300,000</h1>
             </div>
            
           </div>
@@ -486,9 +596,9 @@ function Home() {
           <div className="side_prize first">
             <img src="../../imgs/gold_medal 1.png" alt="" />
             <div className="side_prize_text first">
-              <h4>1st</h4>
-              <p>Runner</p>
-              <h1 className='purple'>N400,000</h1>
+              <h4 data-animation='text-animation'>1st</h4>
+              <p> data-animation='text-animation'Runner</p>
+              <h1 className='purple' data-animation='text-animation'>N400,000</h1>
             </div>
            
           </div>
@@ -496,9 +606,9 @@ function Home() {
           <div className="side_prize">
             <img src="../../imgs/bronze_medal 1.png" alt="" />
             <div className="side_prize_text">
-              <h4>3rd</h4>
-              <p>Runner</p>
-              <h1 className='purple'>N150,000</h1>
+              <h4 data-animation='text-animation'>3rd</h4>
+              <p data-animation='text-animation'>Runner</p>
+              <h1 className='purple' data-animation='text-animation'>N150,000</h1>
             </div>
            
           </div>
@@ -508,8 +618,8 @@ function Home() {
 
      <section className="partners">
       <div className="partners_heading">
-        <h3>Partners and Sponsors</h3>
-        <p>
+        <h3 data-animation='text-animation'>Partners and Sponsors</h3>
+        <p data-animation='text-animation'>
           Getlinked Hackathon 1.0 is honored to have the following major 
           companies as its partners and sponsors
         </p>
@@ -547,16 +657,16 @@ function Home() {
      <section className="privacy">
       <article className="privacy">
         <div className="privacy_heading">
-          <h3>Privacy Policy and <br /> <span className="purple">Terms</span></h3>
-          <small>Last updated on September 12, 2023</small>
-          <p>
+          <h3 data-animation='text-animation'>Privacy Policy and <br /> <span className="purple">Terms</span></h3>
+          <small data-animation='text-animation'>Last updated on September 12, 2023</small>
+          <p data-animation='text-animation'>
             Below are our privacy & policy, which outline a lot of goodies. 
             it’s our aim to always take of our participant
           </p>
         </div>
 
         <article className="policy">
-          <p>
+          <p data-animation='text-animation'>
             At getlinked tech Hackathon 1.0, we value your privacy
             and are committed to protecting your personal information.
             This Privacy Policy outlines how we collect, use, disclose, 
@@ -566,15 +676,15 @@ function Home() {
           </p>
 
           <article className="license">
-            <h4 className='purple'>Licensing Policy</h4>
-            <h5>Here are terms of our Standard License:</h5>
+            <h4 className='purple' data-animation='text-animation'>Licensing Policy</h4>
+            <h5 data-animation='text-animation'>Here are terms of our Standard License:</h5>
 
             <ul>
-              <li>
+              <li data-animation='text-animation'>
                 The Standard License grants you a non-exclusive right to
                 navigate and register for our event
               </li>
-              <li>
+              <li data-animation='text-animation'>
                 You are licensed to use the item available at any free source
                 sites, for your project development
               </li>
@@ -588,7 +698,7 @@ function Home() {
       </article>
 
       <div className="policy_img">
-        <img src="../../imgs/08 1.png" alt="" />
+        <img src="../../imgs/policy_group.png" alt="" />
       </div>
       
      </section>
@@ -598,7 +708,7 @@ function Home() {
         <article className="getlinked_about">
           <h4>get<span className="purple">linked</span></h4>
 
-          <p>
+          <p data-animation='text-animation'>
             Getlinked Tech Hackathon is a technology innovation program 
             established by a group of organizations with the aim of showcasing 
             young and talented individuals in the field of technology
@@ -608,13 +718,13 @@ function Home() {
         </article>
         <article className="getlinked_items">
          <div className="getlinked_items_links">
-          <h5 className="purple">Useful Links</h5>
-          <a href="">Overview</a>
-          <a href="">Timeline</a>
-          <a href="">FAQs</a>
-          <a href="">Register</a>
+          <h5 className="purple" data-animation='text-animation'>Useful Links</h5>
+          <a href="" data-animation='text-animation'>Overview</a>
+          <a href="" data-animation='text-animation'>Timeline</a>
+          <a href="" data-animation='text-animation'>FAQs</a>
+          <a href="" data-animation='text-animation'>Register</a>
           <div className="follow">
-            <h6 className='purple'>Follow us</h6>
+            <h6 className='purple' data-animation='text-animation'>Follow us</h6>
             <img src="../../imgs/mdi_instagram.svg" alt="" />
             <img src="../../imgs/Vector.svg" alt="" />
             <img src="../../imgs/Vector (1).svg" alt="" />
@@ -623,19 +733,21 @@ function Home() {
          </div>
 
          <div className="getlinked_contact">
-          <h5 className="purple">Contact Us</h5>
-          <p><img src="" alt="" /> +234 679 81819</p>
+          <h5 className="purple" data-animation='text-animation'>Contact Us</h5>
+          <p><img src="" alt="" data-animation='text-animation' /> +234 679 81819</p>
           <p>
             <img src="" alt="" /> 
-            27,Alara Street
-            Yaba 100012
-            Lagos State
+            <p data-animation='text-animation'>
+              27,Alara Street
+              Yaba 100012
+              Lagos State
+            </p>
           </p>
          </div>
         </article>
       </div>
       <div className="footer_rights">
-        <p>All rights reserved. &copy; getlinked Ltd.</p>
+        <p data-animation='text-animation'>All rights reserved. &copy; getlinked Ltd.</p>
       </div>
      </footer>
     
