@@ -25,9 +25,9 @@ function Nav() {
   return (
     <div className='nav_all'>
       <nav className="nav">
-        <div className="nav_first">
+        <a className="nav_first" href='/'>
           <h2>get<span className="purple">linked</span></h2>
-        </div>
+        </a>
 
         <div className="mobile_toggle">
           <img className='menu' src="../../imgs/nav_toggle.svg" alt="" />
@@ -40,9 +40,9 @@ function Nav() {
             <NavLink to='/contact'>Contact</NavLink>
           </ul>
 
-          <button className="register">
+          <a className="register" href='/register'>
             Register
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -60,9 +60,9 @@ function Nav() {
           <NavLink to='/contact'>Contact</NavLink>
           </ul>
 
-          <button className="register">
+          <a className="register" href='/register'>
             Register
-          </button>
+          </a>
         </div>
       </aside>
      
