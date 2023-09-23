@@ -1,5 +1,8 @@
 import React, {useEffect} from 'react';
 import '../styles/nav.css'
+import { NavHashLink } from 'react-router-hash-link';
+import { NavLink } from 'react-router-dom';
+
 
 function Nav() {
    useEffect(()=>{
@@ -31,10 +34,10 @@ function Nav() {
         </div>
         <div className="nav_second">
           <ul>
-            <li>Timeline</li>
-            <li>Overview</li>
-            <li>FAQs</li>
-            <li>Contact</li>
+            <NavHashLink smooth to='/#timeline'>Timeline</NavHashLink>
+            <NavHashLink smooth to='/#overview'>Overview</NavHashLink>
+            <NavHashLink smooth to='/#faq_'>FAQs</NavHashLink>
+            <NavLink to='/contact'>Contact</NavLink>
           </ul>
 
           <button className="register">
@@ -51,10 +54,10 @@ function Nav() {
             </button>
           </div>
           <ul>
-          <a href=""><li>Timeine</li></a>
-          <a href=""><li>Overview</li></a>
-          <a href=""><li>FAQs</li></a>
-          <a href=""><li>Contact</li></a>
+           <NavHashLink smooth to='/#timeline'>Timeline</NavHashLink>
+          <NavHashLink smooth to='/#overview'>Overview</NavHashLink>
+          <NavHashLink smooth to='/#faq_'>FAQs</NavHashLink>
+          <NavLink to='/contact'>Contact</NavLink>
           </ul>
 
           <button className="register">
