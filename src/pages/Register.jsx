@@ -79,6 +79,7 @@ getOptions()
           type="text" 
           placeholder='Enter the name of your group'
           value={name}  
+          required
           onChange={e => setName(e.target.value)}
           />
          </div>
@@ -90,6 +91,7 @@ getOptions()
           type="text" 
           placeholder='Enter your phone number'
           value={phone}  
+          required
           onChange={e => setPhone(e.target.value)}
           />
          </div>
@@ -103,6 +105,7 @@ getOptions()
           type="email" 
           placeholder='Enter your email address'
           value={email}  
+          required
           onChange={e => setEmail(e.target.value)}
           />
          </div>
@@ -113,7 +116,8 @@ getOptions()
           name='project_topic'
           type="text" 
           placeholder='What is your group project topic'
-          value={topic}  
+          value={topic} 
+          required
           onChange={e => setTopic(e.target.value)}
           />
          </div>
@@ -124,6 +128,7 @@ getOptions()
           <label htmlFor="">Category</label>
           <select 
            name='category'
+           required
            value={category}  
            onChange={e => setCatergory(e.target.value)}
            className='category' 
@@ -140,10 +145,11 @@ getOptions()
           <label htmlFor="">Group Size</label>
           <select 
             value={size}  
-           onChange={e => setSize(e.target.value)}
-           className='group' 
-           name="group_size" 
-           id="">
+            required
+            onChange={e => setSize(e.target.value)}
+            className='group' 
+            name="group_size" 
+            id="">
            <option >select</option>
            <option value={3}>three</option>
            <option value={5}>five</option>
@@ -159,6 +165,7 @@ getOptions()
         type="checkbox" 
         name="privacy_policy_accepted" 
         id="" 
+        required
         value={policy}  
         onChange={e => setPolicy(e.target.value)}
         />I agreed with the event terms and conditions  and privacy policy

@@ -114,9 +114,9 @@ function Home() {
          Participate in getlinked tech Hackathon 2023 stand 
          a chance to win a Big prize
         </p>
-        <button className="register">
+        <a className="register" href='/register'>
          Register
-        </button>
+        </a>
         <div className='count_down'>
          <p><span className="hr">{hours}</span>h</p>
          <p><span className="min">{minutes}</span>m</p>
