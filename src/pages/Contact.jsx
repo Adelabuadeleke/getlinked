@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from '../axios';
 import Nav from '../components/Nav';
+import Modal from '../components/Modal';
 import '../styles/contact.css'
 import requests from '../requests';
 
@@ -9,24 +10,36 @@ function Contact() {
  const [email, setEmail] = useState('')
  const [message, setMessage] = useState('')
 
- const sendContact = async ()=>{
- 
+  const openModal = () =>{
+   const modal = document.querySelector(".modal-overlay");
+   modal.classList.add("open-modal");
+  }
+
+ const sendContact = async (e)=>{
+  e.preventDefault()
   const details ={
-   name:name,
+   first_name:name,
    email: email,
-   phone_number: '',
    message:message
   }
 
   const result = await axios.post(requests.fetchContact, details)
   .then(result=>{
    console.log(result)
+   if(result.data){
+    openModal()
+   }
+
   })
   console.log('message sent!')
 }
 
   return (
    <div className='contact'>
+     <Modal 
+     heading='Your message has been received!'
+     message='Thanks for reaching out to us...'
+     />
     <Nav />
     <div className="contact_body">
      <div className="contact_body_text">
