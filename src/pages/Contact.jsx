@@ -1,8 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from '../axios';
 import Nav from '../components/Nav';
 import '../styles/contact.css'
+import requests from '../requests';
 
 function Contact() {
+ const [name, setName] = useState('')
+ const [email, setEmail] = useState('')
+ const [message, setMessage] = useState('')
+
+ const sendContact = async ()=>{
+ 
+  const details ={
+   name:name,
+   email: email,
+   phone_number: '',
+   message:message
+  }
+
+  const result = await axios.post(requests.fetchContact, details)
+  .then(result=>{
+   console.log(result)
+  })
+  console.log('message sent!')
+}
+
   return (
    <div className='contact'>
     <Nav />
@@ -39,11 +61,31 @@ function Contact() {
        <h3>Questions or need assistance?</h3>
        <h3>Let us know  about it!</h3>
 
-       <input type="text" name="" id="" placeholder='First Name' />
-       <input type="email" name="" id="" placeholder='Mail' />
-       <textarea name="" id="" cols="30" rows="10" placeholder='Message'></textarea>
+       <input 
+       type="text" 
+       name="" 
+       id="" 
+       placeholder='First Name' 
+       value={name}  
+       onChange={e => setName(e.target.value)}
+       />
+       <input 
+       type="email" 
+       name="" 
+       id="" 
+       placeholder='Mail' 
+       value={email}  
+       onChange={e => setEmail(e.target.value)}
+       />
+       <textarea 
+       name="" 
+       id="" cols="30" 
+       rows="10" 
+       value={message}  
+       onChange={e => setMessage(e.target.value)}
+       placeholder='Message'></textarea>
        <div className="submit_div">
-        <button className="submit">
+        <button className="submit" onClick={sendContact}>
          Submit
         </button>
        </div>
