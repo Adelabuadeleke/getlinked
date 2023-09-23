@@ -10,9 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.5.0",
+    "gsap": "^3.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "react-router-hash-link": "^2.4.3",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
